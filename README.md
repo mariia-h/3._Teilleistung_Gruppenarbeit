@@ -6,7 +6,7 @@ Moez Daly                                  moez.daly@tu-dortmund.de\
 Ayoub Hbouz                                ayoub.hbouz@tu-dortmund.de<br/> 
 Roseline Ginette Synthia Saadeu Silatsa    ginette.saadeu@tu-dortmund.de\
 Khaireddine Hadj Kacem                     khaireddine.hadjkacem@tu-dortmund.de<br/> 
-Mariia Hrechyn                             mariia.hrechyn@tu-dortmund.de\
+Mariia Hrechyn                             mariia.hrechyn@tu-dortmund.de
       
 Repository enthaelt simulierte Datensatz, Skript-1 mit Funktione fuer Deskription und Visualisation von diesen Datensatz
 und Skript-2 mit Hilfsfunktionen fuer Funktionen aus Skript-1
