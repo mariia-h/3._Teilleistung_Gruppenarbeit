@@ -1,6 +1,6 @@
    ### 3._Teillenleistung_Gruppenarbeit 
    
-   Authoren:
+   #Authoren:
    
 Moez Daly                                  moez.daly@tu-dortmund.de 
 Ayoub Hbouz                                ayoub.hbouz@tu-dortmund.de 
@@ -11,7 +11,7 @@ Mariia Hrechyn                             mariia.hrechyn@tu-dortmund.de
 Repository enthaelt simulierte Datensatz, Skript-1 mit Funktione fuer Deskription und Visualisation von diesen Datensatz
 und Skript-2 mit Hilfsfunktionen fuer Funktionen aus Skript-1
 
-   Datensatz 
+   #Datensatz 
    
 Unsere simulierte Datensatz hat 5 Variablen, die insgesammt 100 Personen beschreiben.
 Variablen sind: 
@@ -23,7 +23,7 @@ Interesse_an_Programmieren:   (numerische ganzzahlige Skalar aus Teilmenge {1,2,
 Mathe_LK:                     (character "ja", oder "nein")
                
                
-   Skript-1
+   #Skript-1
    
 Skript-1 enthaelt Funkitonen fuer Deskription und Visualisation von unseren Datensatz 
 Dazu gehoeren Funktionen, die:
@@ -36,7 +36,7 @@ Dazu gehoeren Funktionen, die:
 (f) geeignete Visualisierung von drei oder vierkategorialen Variablen erstellt
                              
                              
-   Skript-2
+   #Skript-2
    
 Skript-2 enthaelt Funktionen, die als Hilfsfunktionen fuer ausfuehrung von Skript-1 dienen.
 
