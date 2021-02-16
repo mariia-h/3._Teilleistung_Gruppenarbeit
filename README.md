@@ -1,4 +1,4 @@
-   #### 3._Teillenleistung_Gruppenarbeit 
+   ### 3._Teillenleistung_Gruppenarbeit 
    
   ## Authoren:
    
@@ -28,12 +28,12 @@ Mathe_LK:                     (character "ja", oder "nein")
 Skript-1 enthaelt Funkitonen fuer Deskription und Visualisation von unseren Datensatz 
 Dazu gehoeren Funktionen, die:
 
-*Item 1 (a) deskriptive Statistiken fur metrische Variablen berechnet und ausgibt
-*Item 2 (b) deskriptive Statistiken fur kategoriale Variablen berechnet und ausgibt
-*Item 3 (c) deskriptive bivariate Statistiken fur den Zusammenhang zwischen zwei kategorialen Variablen berechnet ausgibt
-*Item 4 (d) deskriptive bivariate Statistiken fur den Zusammengang zwischen einer metrischen und einer dichotomen Variablen berechnet und ausgibt
-*Item 5 (e) eine mindestens ordinal skalierte Variable quantilbasiert kategorisiert 
-*Item 6 (f) geeignete Visualisierung von drei oder vierkategorialen Variablen erstellt
+* (a) deskriptive Statistiken fur metrische Variablen berechnet und ausgibt
+* (b) deskriptive Statistiken fur kategoriale Variablen berechnet und ausgibt
+* (c) deskriptive bivariate Statistiken fur den Zusammenhang zwischen zwei kategorialen Variablen berechnet ausgibt
+* (d) deskriptive bivariate Statistiken fur den Zusammengang zwischen einer metrischen und einer dichotomen Variablen berechnet und ausgibt
+* (e) eine mindestens ordinal skalierte Variable quantilbasiert kategorisiert 
+* (f) geeignete Visualisierung von drei oder vierkategorialen Variablen erstellt
                              
                              
    ## Skript-2
