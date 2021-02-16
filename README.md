@@ -1,6 +1,6 @@
-   ### 3._Teillenleistung_Gruppenarbeit 
+   #### 3._Teillenleistung_Gruppenarbeit 
    
-   #Authoren:
+  ## Authoren:
    
 Moez Daly                                  moez.daly@tu-dortmund.de 
 Ayoub Hbouz                                ayoub.hbouz@tu-dortmund.de 
@@ -11,7 +11,7 @@ Mariia Hrechyn                             mariia.hrechyn@tu-dortmund.de
 Repository enthaelt simulierte Datensatz, Skript-1 mit Funktione fuer Deskription und Visualisation von diesen Datensatz
 und Skript-2 mit Hilfsfunktionen fuer Funktionen aus Skript-1
 
-   #Datensatz 
+   ## Datensatz 
    
 Unsere simulierte Datensatz hat 5 Variablen, die insgesammt 100 Personen beschreiben.
 Variablen sind: 
@@ -23,20 +23,20 @@ Interesse_an_Programmieren:   (numerische ganzzahlige Skalar aus Teilmenge {1,2,
 Mathe_LK:                     (character "ja", oder "nein")
                
                
-   #Skript-1
+   ## Skript-1
    
 Skript-1 enthaelt Funkitonen fuer Deskription und Visualisation von unseren Datensatz 
 Dazu gehoeren Funktionen, die:
 
-(a) deskriptive Statistiken fur metrische Variablen berechnet und ausgibt
-(b) deskriptive Statistiken fur kategoriale Variablen berechnet und ausgibt
-(c) deskriptive bivariate Statistiken fur den Zusammenhang zwischen zwei kategorialen Variablen berechnet ausgibt
-(d) deskriptive bivariate Statistiken fur den Zusammengang zwischen einer metrischen und einer dichotomen Variablen berechnet und ausgibt
-(e) eine mindestens ordinal skalierte Variable quantilbasiert kategorisiert 
-(f) geeignete Visualisierung von drei oder vierkategorialen Variablen erstellt
+*Item 1 (a) deskriptive Statistiken fur metrische Variablen berechnet und ausgibt
+*Item 2 (b) deskriptive Statistiken fur kategoriale Variablen berechnet und ausgibt
+*Item 3 (c) deskriptive bivariate Statistiken fur den Zusammenhang zwischen zwei kategorialen Variablen berechnet ausgibt
+*Item 4 (d) deskriptive bivariate Statistiken fur den Zusammengang zwischen einer metrischen und einer dichotomen Variablen berechnet und ausgibt
+*Item 5 (e) eine mindestens ordinal skalierte Variable quantilbasiert kategorisiert 
+*Item 6 (f) geeignete Visualisierung von drei oder vierkategorialen Variablen erstellt
                              
                              
-   #Skript-2
+   ## Skript-2
    
 Skript-2 enthaelt Funktionen, die als Hilfsfunktionen fuer ausfuehrung von Skript-1 dienen.
 
