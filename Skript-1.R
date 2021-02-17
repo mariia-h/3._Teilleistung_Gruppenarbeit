@@ -92,4 +92,4 @@ zusammenhangsmasse <- function(x){
 
 
 
-#test1
+#test2
