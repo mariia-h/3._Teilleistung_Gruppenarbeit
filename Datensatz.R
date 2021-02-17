@@ -82,4 +82,4 @@ datensatz=data.frame(Alter = alter ,Studienfach = studienfach ,
                      Interesse_an_Programmieren = Interesse_an_Programmieren,
                      Mathe_LK = mathe_LK)
 
-## Bleibt noch die Dokumentation: 
+## Bleibt noch die Dokumentation: er
