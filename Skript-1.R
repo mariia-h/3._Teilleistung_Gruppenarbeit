@@ -163,3 +163,4 @@ kategorien <- function(x){
 
 
 #beispiel
+##beispiel
