@@ -162,4 +162,4 @@ kategorien <- function(x){
 
 
 
-
+#beispiel
