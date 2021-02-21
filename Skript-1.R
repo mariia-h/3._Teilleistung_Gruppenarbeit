@@ -1,6 +1,8 @@
+library(readr)
+
 
 #c)
-#Funktion fuer Beschreibung von Zusammenhangsmasse 
+#Funktion fuer die Beschreibung von Zusammenhangsmasse 
 
 #Eingabe: Data Frame, von interesse sind Spalten Mathe_LK(character), Studienfach(character), Interesse_an_Mathematik(numeric), Interesse_an_Programmieren(numeric)
 
@@ -91,6 +93,73 @@ zusammenhangsmasse <- function(x){
 
 
 
+#e) 
+#Eine Funktion fuer die Beschreibung verschiedene ordinale Variablen
+#Eingabe: Data Frame, von interesse sind Spalten Alter(Numeric), Interesse_an_Mathematik(numeric), 
+#Interesse_an_Programmieren(numeric)
 
-#test2
-#test22
+#ausgabe: eine Liste mit 3 verschiedene Verteilungen der Daten als Kategorien:
+#1: Verteilung der Studenten in Uebereinstimmung mit deren Alter
+#2: Verteilung der Studenten, die mathe studieren, in Uebereinstimmung mit wie viel sie es magen
+#3: Verteilung der Studenten, die Informatik studieren,  in Uebereinstimmung mit viel sie es magen
+
+#Die  Funtion liefert uns in prozentanteil, ob die Studenten jung oder alt sind und wieviel Studenten, die 
+#mathe/Informatik studieren, eigentlich ihre Studienfach magen.
+
+
+#Erstellung der Funktion
+kategorien <- function(x){
+  #Die Verteilung der Studenten in 3 Kategorien in Ueberstimmung mit deren Alter, und sie als Vektor speichern
+  alterkategorisiert = c(length(x$Alter[x$Alter<=20]),
+                         length(x$Alter[x$Alter>20 & x$Alter<=26]),
+                         length(x$Alter[x$Alter>26]))
+  #Namen zum Vektor geben
+  names(alterkategorisiert)= c("jung","zwichenstufe","alt")
+  
+  #Der Vektor als data frame umwandeln
+  alterdf = data.frame(alterkategorisiert)
+  alterdf_t = as.data.frame(t(as.matrix(alterdf)))
+  
+  #Wie viele Studenten informatik studieren
+  anzahlinfo = length(x$Studienfach[x$Studienfach == "Informatik"])
+  #Wie Viele Studenten Mathe studieren
+  anzahlmathe= length(x$Studienfach[x$Studienfach == "Mathe"])
+  
+  #Die Studenten, die Mathe studieren in 3 Kategorien verteilen in Ueberstimmung mit wie viel sie Mathe magen.
+  mathekategorisiert = c(length(x$Interesse_an_Mathematik[x$Interesse_an_Mathematik <= 2 & x$Studienfach=="Mathe"]),
+                         length(x$Interesse_an_Mathematik[(x$Interesse_an_Mathematik ==3 | x$Interesse_an_Mathematik==4) & x$Studienfach=="Mathe"] ),
+                         length(x$Interesse_an_Mathematik[x$Interesse_an_Mathematik>=5 & x$Studienfach=="Mathe"]))
+  #Dies Vektor benennen
+  names(mathekategorisiert) = c("niedrig","mittel","hoch")
+  
+  #Dieselbe Verteilung aber in Prozenanteil
+  mathekategorisiert_pro = c(((length(x$Interesse_an_Mathematik[x$Interesse_an_Mathematik <= 2 & x$Studienfach=="Mathe" ])*100)/anzahlmathe),
+                             ((length(x$Interesse_an_Mathematik[(x$Interesse_an_Mathematik ==3 | x$Interesse_an_Mathematik==4)& x$Studienfach=="Mathe"])*100)/anzahlmathe),
+                             ((length(x$Interesse_an_Mathematik[x$Interesse_an_Mathematik>=5& x$Studienfach=="Mathe"])*100)/anzahlmathe))
+  names(mathekategorisiert_pro) = c("niedrig","mittel","hoch")
+  
+  #die normale Verteilung sowie die mit dem Prozentanteil als data frame umwandeln
+  mathedf = data.frame(mathekategorisiert,mathekategorisiert_pro)
+  mathedf_t = as.data.frame(t(as.matrix(mathedf)))
+  
+  #Informatik is Analog zu mathe
+  infokategorisiert = c(length(x$Interesse_an_Programmieren[x$Interesse_an_Programmieren <= 2 & x$Studienfach=="Informatik"]),
+                        length(x$Interesse_an_Programmieren[(x$Interesse_an_Programmieren==3 | x$Interesse_an_Programmieren==4) & x$Studienfach=="Informatik"] ),
+                        length(x$Interesse_an_Programmieren[x$Interesse_an_Programmieren>=5 & x$Studienfach=="Informatik"]))
+  names(infokategorisiert) = c("niedrig","mittel","hoch")
+  
+  
+  infokategorisiert_pro = c(((length(x$Interesse_an_Programmieren[x$Interesse_an_Programmieren <= 2 & x$Studienfach=="Informatik" ])*100)/anzahlinfo),
+                            ((length(x$Interesse_an_Programmieren[(x$Interesse_an_Programmieren ==3 | x$Interesse_an_Programmieren==4)& x$Studienfach=="Informatik"])*100)/anzahlinfo),
+                            ((length(x$Interesse_an_Programmieren[x$Interesse_an_Programmieren>=5& x$Studienfach=="Informatik"])*100)/anzahlinfo))
+  names(infokategorisiert_pro) = c("niedrig","mittel","hoch")
+  infodf = data.frame(infokategorisiert,infokategorisiert_pro)
+  infodf_t= as.data.frame(t(as.matrix(infodf)))
+  
+  
+  return(list(alterdf_t,mathedf_t,infodf_t))
+}
+
+
+
+
