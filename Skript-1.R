@@ -164,3 +164,88 @@ kategorien <- function(x){
 
 #beispiel
 ##beispiel
+
+##3b))
+
+
+
+#Funktion fuer die Beschreibung von kategorialen Variablen
+
+#Eingabe: Data Frame, von interesse sind Spalten Studienfach (ja\nein) und Mathe LK
+
+#Ausgabe: eine Liste mit 2  verschiedene Verteilungen der Daten als Kategorien:
+ #1: Verteilung der Studenten ,die zwischen Statistik“, „Data Science“, „Mathe“ und „Informatik“,ihr Studienfach auswählen.
+ #2: Verteilung der Studenten,die ja oder nein Mathe-LK gehabt hatte.
+
+##Erstellung der Funktion
+
+MYFUNKTION <- function(x){if(x=studienfach)
+  
+##zunaechst meiner ausgewaehlten Reihenfolge
+  
+  studienfach <- factor(studienfach,levels = c("Statistik","Data Science","Mathe","Informatik"))
+
+## Absolute Hauefigkeit (absH)
+
+absH <- table(studienfach)
+
+## Relativ Hauefigkeit (relH)
+
+relH <- table(studienfach)/length(studienfach)
+
+##Anteil als Prozentsaetze (proz)
+
+proz <- relH * 100
+
+##ich wollte alles ,so in einer Tabelle zusammenfassen ,damit es schoen aussieht
+
+relH <- round(relH,digits = 3)
+proz <- round(proz,digits = 0)
+studienfachtyp <- cbind(absH,relH,proz)
+
+## Ein Balkendiagramm
+
+barplot(studienfachtyp[1:3],beside = TRUE
+        +legend = rownames(studienfachtyp),ylim = C(0,100))
+
+  
+if(x=Mathe-Lk) 
+  
+  ##zunaechst meiner ausgewaehlten Reihenfolge
+  
+  Mathe-Lk <- factor(Mathe-Lk,levels = c("ja","nein"))
+
+## Absolute Hauefigkeit (absH)
+
+absH <- table(Mathe-Lk)
+
+## Relativ Hauefigkeit (relH)
+
+relH <- table(Mathe-Lk)/length(studienfach)
+
+##Anteil als Prozentsaetze (proz)
+
+proz <- relH * 100
+
+##ich wollte alles ,so in einer Tabelle zusammenfassen ,damit es schoen aussieht
+
+relH <- round(relH,digits = 3)
+proz <- round(proz,digits = 0)
+Mathe-Lktyp <- cbind(absH,relH,proz)
+
+## Ein Balkendiagramm
+
+barplot(studienfachtyp[1:3],beside = TRUE
+        +legend = rownames(Mathe-Lktyp),ylim = C(0,100))
+
+
+  
+  
+  
+  
+  
+  
+}
+
+
+
