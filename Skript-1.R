@@ -1,5 +1,28 @@
 library(readr)
 
+# a) Die Funktion lagemasse berechnet ein paar Lagemassen fuer metrische Merkmale. 
+# Input:  dataframe, default:  unseres Datensatzes
+#Output:  liste enthaelt: - arithmetisches Mittel vom Alter
+#                         - Modus vom Interesse an Mathematik 
+#                         - geometrisches Mittel vom Interesse an Prog. 
+
+lagemasse = function(x = datensatz){
+  
+  arith.mittel = 1/length(which(!is.na(Datensatz$Alter))) * 
+    sum(Datensatz$Alter,rm.na = TRUE)
+  
+  modus = which.max(Datensatz$Interesse_an_Mathematik)
+  
+  geom.mittel =    prod(Datensatz$Alter,rm.na = TRUE) ^ 
+                   1/length(which(!is.na(Datensatz$Alter)))  
+  
+  
+  return(list(arithmetisches.Mittel = arith.mittel,
+              Modus = modus , 
+              geometrisches.Mittel = geom.mittel))
+}
+
+
 
 #c)
 #Funktion fuer die Beschreibung von Zusammenhangsmasse 
