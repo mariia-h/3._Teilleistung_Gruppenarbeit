@@ -92,6 +92,38 @@ zusammenhangsmasse <- function(x){
 }
 
 
+ 
+#d)
+#Eine Funktion, die geeignete deskriptive bivariate Statistiken für den Zusammengang 
+#zwischen einer metrischen und einer dichotomen Variablen berechnet und ausgibt
+
+#Eingabe: Data Frame, von Interesse sind Spalten Alter(numeric), Mathe_LK(factor) 
+
+#Ausgabe: eine Liste mit einer Tabelle zur Veranschaulichung der Daten und die zugehörigen Punktbiseriale Korrelation  
+
+#die einzige Zusammenhangsmaß. die die Zusammenhang zwischen einer metrischen und einer
+#dichotomen Variablen berechnet und ausgibt, ist die Punktbiseriale Korrelation
+
+
+dfunktion <- function(x){
+
+#die Zusammenhang als Table zwischen Alter und ob man in der Schule Mathe-LK hatte oder nicht
+  table <- table(x$Mathe_LK,x$Alter) 
+
+  Alter<-x$Alter
+
+  #Da die zweite vektor numeric  sein muss
+  Mathe_LK<-as.numeric(x$Mathe_LK)  
+
+  # diese R funktion lifert uns die punktbiseriale Korrelationskoeffizient 
+  Punktbiseriale_Korrelation <- cor.test(Alter, Mathe_LK) 
+  
+  return(list(table,Punktbiseriale_Korrelation))
+}
+
+    
+    
+    
 
 #e) 
 #Eine Funktion fuer die Beschreibung verschiedene ordinale Variablen
