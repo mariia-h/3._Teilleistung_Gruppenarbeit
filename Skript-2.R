@@ -23,3 +23,28 @@ expect<- function(x){
   }
   return(result)
 }
+
+#f)
+
+#Hilfsfunktion fuer extrahieren passenden Vektor 
+
+#Eingabe: x Data Frame 
+#Ausgabe: vektor mit Beobachtungen fuer Studienfach aus gegebene Data Frame 
+
+Studienfach <- function(x){
+  return(x$Studienfach)
+}
+
+#Eingabe: x Data Frame 
+#Ausgabe: vektor mit Beobachtungen fuer Interesse_an_Mathematik aus gegebene Data Frame
+
+Interesse_an_Mathematik <- function(x){
+  return(x$Interesse_an_Mathematik)
+}
+
+#Eingabe: x Data Frame 
+#Ausgabe: vektor mit Beobachtungen fuer Mathe_LK aus gegebene Data Frame
+
+Mathe_LK <- function(x){
+  return(x$Mathe_LK)
+}
