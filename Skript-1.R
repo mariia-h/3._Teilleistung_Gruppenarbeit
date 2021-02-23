@@ -1,4 +1,7 @@
 library(readr)
+#install.packages("vcd")
+library(MASS)
+library(vcd)
 
 
 #c)
@@ -270,14 +273,34 @@ Mathe-Lktyp <- cbind(absH,relH,proz)
 barplot(studienfachtyp[1:3],beside = TRUE
         +legend = rownames(Mathe-Lktyp),ylim = C(0,100))
 
+}
 
+
+#f)
+
+#Funktion fuer Visualisation von kategorielen Variablen 
+
+#Datensatz ablesen 
+Data <- data.frame(read.csv("Datensatz.csv"))
+
+#Passende Vektoren extrahieren 
+Studienfach <- Studienfach(Data)
+Interesse_an_Mathematik <- Interesse_an_Mathematik(Data)
+Mathe_LK <- as.vector(Mathe_LK(Data))
+
+#Eingabe: s, i, m Vektoren die visualisiert werden 
+
+#Ausgabe: Mosaikplot
+
+#Funktion stellt Variable Mathe_LK, Interesse_an_Mathematik und Studienfach zusammen
+
+visualisation <- function(s,i,m){
   
-  
-  
-  
-  
+  mosaic(~ Studienfach + Interesse_an_Mathematik+Mathe_LK,main = "Beziehung zwischen Studienfach, Interesse an Mathematok und Vorhandensein von Mathe LK", highlighting = "Mathe_LK", highlighting_fill = c("lightblue", "pink"),
+         direction = c("v","h","v"))
   
 }
 
+visualisation(Studienfach,Interesse_an_Mathematik,Mathe_LK)
 
 
