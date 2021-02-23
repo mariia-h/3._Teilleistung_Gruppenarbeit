@@ -3,6 +3,29 @@ library(readr)
 library(MASS)
 library(vcd)
 
+# a) Die Funktion lagemasse berechnet ein paar Lagemassen fuer metrische Merkmale. 
+# Input:  dataframe, default:  unseres Datensatzes
+#Output:  liste enthaelt: - arithmetisches Mittel vom Alter
+#                         - Modus vom Interesse an Mathematik 
+#                         - geometrisches Mittel vom Interesse an Prog. 
+
+lagemasse = function(x = datensatz){
+  
+  arith.mittel = 1/length(which(!is.na(Datensatz$Alter))) * 
+    sum(Datensatz$Alter,rm.na = TRUE)
+  
+  modus = which.max(Datensatz$Interesse_an_Mathematik)
+  
+  geom.mittel =    prod(Datensatz$Alter,rm.na = TRUE) ^ 
+                   1/length(which(!is.na(Datensatz$Alter)))  
+  
+  
+  return(list(arithmetisches.Mittel = arith.mittel,
+              Modus = modus , 
+              geometrisches.Mittel = geom.mittel))
+}
+
+
 
 #c)
 #Funktion fuer die Beschreibung von Zusammenhangsmasse 
@@ -30,27 +53,31 @@ zusammenhangsmasse <- function(x){
     if(k==1)  table <- table(x$Mathe_LK, x$Studienfach) #Zusammenhang zwischen Studienfach und die Tatsache, dass Person Mathe-LK hatte
     else if(k==2) table <- table(x$Studienfach, x$Interesse_an_Mathematik)#Zusammenhang zwischen Studienfach und Interesse an Mathematik 
     else table <- table(x$Studienfach, x$Interesse_an_Programmieren)#Zusammenhang zwischen Studienfach und Interesse an Programmieren 
-  expected <-expect(table) 
+  expected <-expect(table)  #Berechnen Erwartunghaeufigkeit
   table <- as.matrix(table)
   expected<- as.matrix(expected)
   n <- sum(table)
   chi.sq <- 0
+  
+  # Berechnen chi-quadrat
   for(i in 1:nrow(table)){
     for(j in 1:ncol(table)){
       chi.sq <- chi.sq + ((table[i,j] - expected[i,j])^2 / expected[i,j])
     }
   }
-  pearson  <- sqrt(chi.sq/(chi.sq+n))
+  
+  pearson  <- sqrt(chi.sq/(chi.sq+n)) #Pearson Kontingenzindex
   kor_pearson <- sqrt(min(ncol(table), nrow(table))/(
-                        min(ncol(table), nrow(table)) - 1)) * pearson
-  phi <- sqrt(chi.sq/(n))
-  cramer <- chi.sq/((min(ncol(table), nrow(table)) - 1) * n)
-  ausgabe[[k]]<- c(pearson, kor_pearson, cramer)
+                        min(ncol(table), nrow(table)) - 1)) * pearson #Korrigierte Pearson Kontingenzindex
+  
+  cramer <- chi.sq/((min(ncol(table), nrow(table)) - 1) * n) #Crammers Kontingenzindex
+  ausgabe[[k]]<- c(pearson, kor_pearson, cramer) 
   }
   interpret <- list(c(),c(),c())
   test <- c("Studienfach und die Tatsache, dass Person Mathe-LK hatte", 
             "Interesse an Mathematik und Studienfach",
             "Interesse an Programmieren und Studienfach")
+  #Erstellen Vektor mit Interpretation fuer jeder Index
   for(l in 1:3){
   for(i in 1:3){
     if(ausgabe[[l]][i]<=0.1) interpret[[l]][i] <-paste( "Es besteht kein Zusammenhang zwischen ", test[l])
@@ -61,11 +88,12 @@ zusammenhangsmasse <- function(x){
   }
   }
   rangkor <- c()
-  rangkor[1] <- cor(x$Interesse_an_Mathematik, Interesse_an_Programmieren, method = "spearman")
-  rangkor[2] <- cor(x$Interesse_an_Mathematik, Interesse_an_Programmieren, method = "kendal")
-  rangkor[3] <- cor(x$Interesse_an_Mathematik, Interesse_an_Programmieren, method = "pearson")
+  rangkor[1] <- cor(x$Interesse_an_Mathematik, Interesse_an_Programmieren, method = "spearman") #Spearman Rangkorellationskoeffizient
+  rangkor[2] <- cor(x$Interesse_an_Mathematik, Interesse_an_Programmieren, method = "kendal") #Kendall`sche Rangkorellationskoeffizient
+  rangkor[3] <- cor(x$Interesse_an_Mathematik, Interesse_an_Programmieren, method = "pearson") #Pearson Korellationskoeffizient
   interpret_rangcor <- c()
   vorzeichen <- "positive "
+  #Erstellen Vektor mit Interpretation fuer jeder Index
   for(i in 1:3){
     if (rangkor[i] < 0) vorzeichen <- "negative " 
     if(rangkor[i]<=0.1) interpret_rangcor[i] <-paste( "Es gibt keine Korellation zwischen Interesse an Mathematik und Interesse an Programmieren")
