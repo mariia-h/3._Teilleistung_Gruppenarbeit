@@ -1,7 +1,8 @@
 library(readr)
 #install.packages("vcd")
 library(MASS)
-library(vcd)
+library
+source("Skript-2.R")
 
 # a) Die Funktion lagemasse berechnet ein paar Lagemassen fuer metrische Merkmale. 
 # Input:  dataframe, default:  unseres Datensatzes
@@ -181,35 +182,30 @@ kategorien <- function(x){
   mathekategorisiert = c(length(x$Interesse_an_Mathematik[x$Interesse_an_Mathematik <= 2 & x$Studienfach=="Mathe"]),
                          length(x$Interesse_an_Mathematik[(x$Interesse_an_Mathematik ==3 | x$Interesse_an_Mathematik==4) & x$Studienfach=="Mathe"] ),
                          length(x$Interesse_an_Mathematik[x$Interesse_an_Mathematik>=5 & x$Studienfach=="Mathe"]))
-  #Dies Vektor benennen
-  names(mathekategorisiert) = c("niedrig","mittel","hoch")
+  
   
   #Dieselbe Verteilung aber in Prozenanteil
   mathekategorisiert_pro = c(((length(x$Interesse_an_Mathematik[x$Interesse_an_Mathematik <= 2 & x$Studienfach=="Mathe" ])*100)/anzahlmathe),
                              ((length(x$Interesse_an_Mathematik[(x$Interesse_an_Mathematik ==3 | x$Interesse_an_Mathematik==4)& x$Studienfach=="Mathe"])*100)/anzahlmathe),
                              ((length(x$Interesse_an_Mathematik[x$Interesse_an_Mathematik>=5& x$Studienfach=="Mathe"])*100)/anzahlmathe))
-  names(mathekategorisiert_pro) = c("niedrig","mittel","hoch")
-  
-  #die normale Verteilung sowie die mit dem Prozentanteil als data frame umwandeln
-  mathedf = data.frame(mathekategorisiert,mathekategorisiert_pro)
-  mathedf_t = as.data.frame(t(as.matrix(mathedf)))
+  mathedf = conversion(mathekategorisiert, mathekategorisiert_pro)
   
   #Informatik is Analog zu mathe
   infokategorisiert = c(length(x$Interesse_an_Programmieren[x$Interesse_an_Programmieren <= 2 & x$Studienfach=="Informatik"]),
                         length(x$Interesse_an_Programmieren[(x$Interesse_an_Programmieren==3 | x$Interesse_an_Programmieren==4) & x$Studienfach=="Informatik"] ),
                         length(x$Interesse_an_Programmieren[x$Interesse_an_Programmieren>=5 & x$Studienfach=="Informatik"]))
-  names(infokategorisiert) = c("niedrig","mittel","hoch")
+  
   
   
   infokategorisiert_pro = c(((length(x$Interesse_an_Programmieren[x$Interesse_an_Programmieren <= 2 & x$Studienfach=="Informatik" ])*100)/anzahlinfo),
                             ((length(x$Interesse_an_Programmieren[(x$Interesse_an_Programmieren ==3 | x$Interesse_an_Programmieren==4)& x$Studienfach=="Informatik"])*100)/anzahlinfo),
                             ((length(x$Interesse_an_Programmieren[x$Interesse_an_Programmieren>=5& x$Studienfach=="Informatik"])*100)/anzahlinfo))
-  names(infokategorisiert_pro) = c("niedrig","mittel","hoch")
-  infodf = data.frame(infokategorisiert,infokategorisiert_pro)
-  infodf_t= as.data.frame(t(as.matrix(infodf)))
   
   
-  return(list(mathedf_t,infodf_t))
+  info_df = conversion(infokategorisiert,infokategorisiert_pro) 
+  
+  
+  return(list(mathedf,infodf))
 }
 
 

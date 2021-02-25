@@ -24,6 +24,24 @@ expect<- function(x){
   return(result)
 }
 
+
+
+#e)
+#Hilfsfunktion fuer die Umwandlung von daten
+
+#Eingabe : zwei numeric vektoren
+
+#Ausgabe : Data frame (besser für weitere Bearbeitungen)
+
+conversion <- function(x,y){
+  names(x) = c("niedrig","mittel","hoch")
+  names(y) = c("niedrig","mittel","hoch")
+  mydf = data.frame(x,y)
+  mydf_t = as.data.frame(t(as.matrix(mydf)))
+  return(mydf_t)
+}
+
+
 #f)
 
 #Hilfsfunktion fuer extrahieren passenden Vektor 
