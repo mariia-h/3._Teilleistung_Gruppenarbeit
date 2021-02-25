@@ -158,13 +158,12 @@ dfunktion <- function(x){
 
 #e) 
 #Eine Funktion fuer die Beschreibung verschiedene ordinale Variablen
-#Eingabe: Data Frame, von interesse sind Spalten Alter(Numeric), Interesse_an_Mathematik(numeric), 
+#Eingabe: Data Frame, von interesse sind Spalten Interesse_an_Mathematik(numeric), 
 #Interesse_an_Programmieren(numeric)
 
-#ausgabe: eine Liste mit 3 verschiedene Verteilungen der Daten als Kategorien:
-#1: Verteilung der Studenten in Uebereinstimmung mit deren Alter
-#2: Verteilung der Studenten, die mathe studieren, in Uebereinstimmung mit wie viel sie es magen
-#3: Verteilung der Studenten, die Informatik studieren,  in Uebereinstimmung mit viel sie es magen
+#ausgabe: eine Liste mit 2 verschiedene Verteilungen der Daten als Kategorien:
+#1: Verteilung der Studenten, die mathe studieren, in Uebereinstimmung mit wie viel sie es magen
+#2: Verteilung der Studenten, die Informatik studieren,  in Uebereinstimmung mit viel sie es magen
 
 #Die  Funtion liefert uns in prozentanteil, ob die Studenten jung oder alt sind und wieviel Studenten, die 
 #mathe/Informatik studieren, eigentlich ihre Studienfach magen.
@@ -172,16 +171,6 @@ dfunktion <- function(x){
 
 #Erstellung der Funktion
 kategorien <- function(x){
-  #Die Verteilung der Studenten in 3 Kategorien in Ueberstimmung mit deren Alter, und sie als Vektor speichern
-  alterkategorisiert = c(length(x$Alter[x$Alter<=20]),
-                         length(x$Alter[x$Alter>20 & x$Alter<=26]),
-                         length(x$Alter[x$Alter>26]))
-  #Namen zum Vektor geben
-  names(alterkategorisiert)= c("jung","zwichenstufe","alt")
-  
-  #Der Vektor als data frame umwandeln
-  alterdf = data.frame(alterkategorisiert)
-  alterdf_t = as.data.frame(t(as.matrix(alterdf)))
   
   #Wie viele Studenten informatik studieren
   anzahlinfo = length(x$Studienfach[x$Studienfach == "Informatik"])
@@ -220,13 +209,11 @@ kategorien <- function(x){
   infodf_t= as.data.frame(t(as.matrix(infodf)))
   
   
-  return(list(alterdf_t,mathedf_t,infodf_t))
+  return(list(mathedf_t,infodf_t))
 }
 
 
 
-#beispiel
-##beispiel
 
 ##3b))
 
