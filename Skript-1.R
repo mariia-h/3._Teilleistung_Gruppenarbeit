@@ -11,13 +11,13 @@ library(vcd)
 
 lagemasse = function(x = datensatz){
   
-  arith.mittel = 1/length(which(!is.na(Datensatz$Alter))) * 
-    sum(Datensatz$Alter,rm.na = TRUE)
+  arith.mittel = 1/length(which(!is.na(x$Alter))) * 
+    sum(x$Alter,rm.na = TRUE)
   
-  modus = which.max(Datensatz$Interesse_an_Mathematik)
+  modus = getmode(x$Interesse_an_Mathematik)
   
-  geom.mittel =    prod(Datensatz$Alter,rm.na = TRUE) ^ 
-                   1/length(which(!is.na(Datensatz$Alter)))  
+  geom.mittel =    prod(x$Alter,rm.na = TRUE) ^ 
+                   1/length(which(!is.na(x$Alter)))  
   
   
   return(list(arithmetisches.Mittel = arith.mittel,
@@ -88,9 +88,9 @@ zusammenhangsmasse <- function(x){
   }
   }
   rangkor <- c()
-  rangkor[1] <- cor(x$Interesse_an_Mathematik, Interesse_an_Programmieren, method = "spearman") #Spearman Rangkorellationskoeffizient
-  rangkor[2] <- cor(x$Interesse_an_Mathematik, Interesse_an_Programmieren, method = "kendal") #Kendall`sche Rangkorellationskoeffizient
-  rangkor[3] <- cor(x$Interesse_an_Mathematik, Interesse_an_Programmieren, method = "pearson") #Pearson Korellationskoeffizient
+  rangkor[1] <- cor(x$Interesse_an_Mathematik, x$Interesse_an_Programmieren, method = "spearman") #Spearman Rangkorellationskoeffizient
+  rangkor[2] <- cor(x$Interesse_an_Mathematik, x$Interesse_an_Programmieren, method = "kendal") #Kendall`sche Rangkorellationskoeffizient
+  rangkor[3] <- cor(x$Interesse_an_Mathematik, x$Interesse_an_Programmieren, method = "pearson") #Pearson Korellationskoeffizient
   interpret_rangcor <- c()
   vorzeichen <- "positive "
   #Erstellen Vektor mit Interpretation fuer jeder Index
