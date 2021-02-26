@@ -1,3 +1,15 @@
+#b) 
+
+#Hilfsfunktion fuer Berechnung von Modus 
+
+#Diese Funktion nimmt den Vektor "v" als Eingabe und gibt den Moduswert als Ausgabe.
+
+getmode <- function(v) {
+   uniqv <- unique(v)
+   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+
 #c)
 
 #Hilfsfunktion fuer Berechnung von Erwartungshaefinkeiten bei 
@@ -23,6 +35,24 @@ expect<- function(x){
   }
   return(result)
 }
+
+
+
+#e)
+#Hilfsfunktion fuer die Umwandlung von daten
+
+#Eingabe : zwei numeric vektoren
+
+#Ausgabe : Data frame (besser für weitere Bearbeitungen)
+
+conversion <- function(x,y){
+  names(x) = c("niedrig","mittel","hoch")
+  names(y) = c("niedrig","mittel","hoch")
+  mydf = data.frame(x,y)
+  mydf_t = as.data.frame(t(as.matrix(mydf)))
+  return(mydf_t)
+}
+
 
 #f)
 
