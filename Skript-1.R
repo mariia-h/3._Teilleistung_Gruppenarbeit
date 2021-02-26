@@ -27,6 +27,36 @@ lagemasse = function(x = datensatz){
 }
 
 
+# b) Die Funktion bfunktion berechnet ein paar Lagemassen fuer für kategoriale Variablen. 
+# Input:  dataframe, default:  unseres Datensatzes
+#Output:  liste enthaelt: - 
+#                         - Modus vom Studienfach und "das zugehörige Stuienfach"
+#                         - Modus und Median des Interesse an Mathematik 
+#                         - Modus und Median des Interesse an Programmieren.
+
+#Für Häufigkeitsverteilungen, die aus den Werten einer nominalen Variable gebildet sind, ist der Modalwert das einzige Lagemaß, 
+#das berechnet werden kann,denn die Variablenwerte weisen weder numerische Intervalle oder Verhältnisse noch eine Rangordnung auf
+
+bfunktion<- function(x){
+  
+  Fach.Modus <- getmode(x$Studienfach)
+  IM.Modus <-  getmode(x$Interesse_an_Mathematik)
+  IP.Modus <-  getmode(x$Interesse_an_Programmieren)
+  
+  IM.Median <-   median(x$Interesse_an_Mathematik)
+  IP.Median<-  median(x$Interesse_an_Programmieren)
+  
+  tt <- table(x$Studienfach)
+  modus_name<- names(tt[which.max(tt)]) # um zu wissen welche Level bzw. welche Studienfach am häufigsten vorkommt
+  
+
+
+   list_data <- list(c(Fach.Modus,modus_name),c(Modalwert = IM.Modus,Median = IM.Median),c(Modalwert = IP.Modus, Median = IP.Median )) 
+   names(list_data)<- c("Modalwert von Studienfach sowie des entsprechenden Fach:","Für die Interesse an Mathematik:","Für die Interesse an Programmieren:")
+   
+   return( list_data)     
+}
+
 
 #c)
 #Funktion fuer die Beschreibung von Zusammenhangsmasse 
