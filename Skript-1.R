@@ -1,7 +1,7 @@
 library(readr)
 #install.packages("vcd")
 library(MASS)
-library
+library(vcd)
 source("Skript-2.R")
 
 # a) Die Funktion lagemasse berechnet ein paar Lagemassen fuer metrische Merkmale. 
