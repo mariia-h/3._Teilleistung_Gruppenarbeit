@@ -1,3 +1,5 @@
+library(vcd)
+
 #b) 
 
 #Hilfsfunktion fuer Berechnung von Modus 
