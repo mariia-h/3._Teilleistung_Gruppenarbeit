@@ -232,7 +232,7 @@ kategorien <- function(x){
                             ((length(x$Interesse_an_Programmieren[x$Interesse_an_Programmieren>=5& x$Studienfach=="Informatik"])*100)/anzahlinfo))
   
   
-  info_df = conversion(infokategorisiert,infokategorisiert_pro) 
+  infodf = conversion(infokategorisiert,infokategorisiert_pro) 
   
   
   return(list(mathedf,infodf))
