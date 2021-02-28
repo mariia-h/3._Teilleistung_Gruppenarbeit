@@ -167,7 +167,7 @@ zusammenhangsmasse <- function(x){
 #dichotomen Variablen berechnet und ausgibt, ist die Punktbiseriale Korrelation
 
 
-dfunktion <- function(x){
+ dfunktion <- function(x){
 
 #die Zusammenhang als Table zwischen Alter und ob man in der Schule Mathe-LK hatte oder nicht
   table <- table(x$Mathe_LK,x$Alter) 
@@ -175,15 +175,16 @@ dfunktion <- function(x){
   Alter<-x$Alter
 
   #Da die zweite vektor numeric  sein muss
-  Mathe_LK<-as.numeric(x$Mathe_LK)  
+  Mathe_LK2<-(x$Mathe_LK)  
+  Mathe_LK2[Mathe_LK2 == "Ja"] <- "1"
+  Mathe_LK2[Mathe_LK2 == "Nein"] <- "0"
+  Mathe_LK2 = as.numeric(Mathe_LK2)
 
   # diese R funktion lifert uns die punktbiseriale Korrelationskoeffizient 
-  Punktbiseriale_Korrelation <- cor.test(Alter, Mathe_LK) 
+  Punktbiseriale_Korrelation <- cor.test(Alter, Mathe_LK2) 
   
   return(list(table,Punktbiseriale_Korrelation))
-}
-
-    
+}   
     
     
 
