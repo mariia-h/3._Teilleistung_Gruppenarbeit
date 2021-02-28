@@ -107,7 +107,7 @@ kategorien(Datensatz)
 
 visualisation(Studienfach,Interesse_an_Mathematik,Mathe_LK)
 
-#bei Studienfach Informatik kann mann bemerken dass die Leute, die hoher Interesse an Mathe haben,
+#bei Studienfach Informatik kann man bemerken, dass die Leute, die hoch Interesse an Mathe haben,
 #hatten auch in der Schule Mathe-LK
 
 #und Für Data Science und Statistik spielt Mathe_Lk fast keine rolle 
